@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seneca - Real-time AI Visualization Dashboard | Marcus AI</title>
+    <meta name="description" content="Seneca provides real-time visualization and monitoring for Marcus AI agent workflows, conversations, and system health.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">Marcus AI</a>
+            <div class="nav-links">
+                <a href="/products">Products</a>
+                <a href="/research">Research</a>
+                <a href="https://docs.marcus-ai.dev">Documentation</a>
+                <a href="https://github.com/lwgray/marcus">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="hero">
+        <h1>Seneca</h1>
+        <p>Real-time visualization dashboard for monitoring AI agent conversations, workflows, and system health</p>
+        <div class="button-group">
+            <a href="https://docs.marcus-ai.dev/seneca/README" class="button button-primary">Read Documentation</a>
+            <a href="https://github.com/lwgray/seneca" class="button button-secondary">View Source</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="user-groups">
+        <div class="container">
+            <h2>Comprehensive Monitoring</h2>
+            <div class="groups-grid">
+                <div class="group-card">
+                    <h3>Service Discovery</h3>
+                    <p>Automatically discovers running Marcus instances through file-based service registry. No configuration needed.</p>
+                    <pre class="code-example"><span class="comment"># Start with auto-discovery</span>
+seneca start
+
+<span class="comment"># Or specify Marcus instance</span>
+seneca start --marcus-server /path/to/marcus</pre>
+                </div>
+
+                <div class="group-card">
+                    <h3>Real-time Visualization</h3>
+                    <p>Monitor agent conversations, task progress, and system events as they happen through WebSocket connections.</p>
+                    <pre class="code-example"><span class="comment"># Check system status</span>
+seneca status
+
+<span class="comment"># View recent logs</span>
+seneca logs --tail 100</pre>
+                </div>
+
+                <div class="group-card">
+                    <h3>Interactive Canvas</h3>
+                    <p>Vue Flow-based canvas for visualizing agent relationships, workflow dependencies, and communication patterns.</p>
+                    <pre class="code-example"><span class="comment"># Components available</span>
+- WorkflowCanvas
+- AgentNodes
+- DecisionNodes
+- KnowledgeGraph</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="products">
+        <div class="container">
+            <h2>System Architecture</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>API Systems</h3>
+                    <p>RESTful APIs and WebSocket services for conversation data, agent management, project tracking, and real-time updates.</p>
+                    <a href="https://docs.marcus-ai.dev/seneca/systems/api-systems">Explore APIs →</a>
+                </div>
+                <div class="product-card">
+                    <h3>Processing Systems</h3>
+                    <p>Data processing engines for conversation analysis, pipeline management, AI insights, and knowledge graph construction.</p>
+                    <a href="https://docs.marcus-ai.dev/seneca/systems/processing-systems">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="https://github.com/lwgray/seneca">GitHub</a>
+        <a href="https://docs.marcus-ai.dev">Documentation</a>
+        <a href="/community">Community</a>
+        <a href="/blog">Blog</a>
+    </footer>
+</body>
+</html>
