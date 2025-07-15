@@ -26,10 +26,10 @@
 
     <!-- Hero Section - Anthropic minimal approach -->
     <section class="hero">
-        <h1>AI agent coordination that learns and adapts</h1>
-        <p>Marcus orchestrates autonomous development teams using cognitive memory systems and intelligent task management</p>
+        <h1>The Open Platform for AI Agent Development</h1>
+        <p>Bring your own AI agents. Build real software. Study orchestration patterns.</p>
         <div class="button-group">
-            <a href="https://docs.marcus-ai.dev/quickstart" class="button button-primary">Get Started</a>
+            <a href="https://docs.marcus-ai.dev/quickstart" class="button button-primary">Connect Your Agent</a>
             <a href="https://github.com/lwgray/marcus" class="button button-secondary">View on GitHub</a>
         </div>
     </section>
@@ -37,39 +37,43 @@
     <!-- User Groups - scikit-bio style -->
     <section class="user-groups">
         <div class="container">
-            <h2>Built for different needs</h2>
+            <h2>Two powerful ways to use Marcus</h2>
             <div class="groups-grid">
                 <div class="group-card">
-                    <h3>For Developers</h3>
-                    <p>Coordinate AI agents to build software autonomously. Marcus handles task assignment, progress tracking, and team coordination.</p>
-                    <pre class="code-example"><span class="comment"># Create a new AI-powered project</span>
-marcus create e-commerce-platform
+                    <h3>For Developers: BYOA Platform</h3>
+                    <p>Connect any MCP-compatible AI agent—Claude, GPT, Gemini, or your custom model. Marcus provides the infrastructure for autonomous software development.</p>
+                    <pre class="code-example"><span class="comment"># Start Marcus MCP server</span>
 marcus start
 
-<span class="comment"># Monitor with Seneca</span>
-seneca start --auto-discover</pre>
+<span class="comment"># Your AI agent connects and uses:</span>
+agent.register_agent(skills=["Python", "React"])
+agent.request_next_task()  <span class="comment"># Pull-based assignment</span>
+agent.report_progress(task_id, 0.75)
+agent.learn_from_feedback()</pre>
                 </div>
 
                 <div class="group-card">
-                    <h3>For Teams</h3>
-                    <p>Scale your development capacity with AI agents that learn from your workflows and adapt to your team's patterns.</p>
-                    <pre class="code-example"><span class="comment"># Register specialized agents</span>
-marcus agent register --role backend
-marcus agent register --role frontend
+                    <h3>For Researchers: Orchestration Lab</h3>
+                    <p>Study AI agent behavior without MCP complexity. Direct API access to analyze task distribution, completion patterns, and autonomous decision-making.</p>
+                    <pre class="code-example"><span class="comment"># Direct research API (no MCP needed)</span>
+<span class="keyword">from</span> marcus.research <span class="keyword">import</span> OrchestrationAPI
 
-<span class="comment"># Agents coordinate automatically</span>
-marcus project status</pre>
+api = OrchestrationAPI()
+task_patterns = api.analyze_pull_patterns()
+agent_metrics = api.get_performance_data()
+decisions = api.study_task_selection()</pre>
                 </div>
 
                 <div class="group-card">
-                    <h3>For Researchers</h3>
-                    <p>Study AI agent coordination, emergent behaviors, and collective intelligence in software development contexts.</p>
-                    <pre class="code-example"><span class="comment"># Access cognitive memory system</span>
-<span class="keyword">from</span> marcus <span class="keyword">import</span> MemorySystem
-
-memory = MemorySystem()
-patterns = memory.analyze_patterns()
-predictions = memory.predict_outcomes()</pre>
+                    <h3>Train Your Agents</h3>
+                    <p>Develop system prompts that encode best practices from thousands of completed tasks. Share and discover agent configurations that work.</p>
+                    <pre class="code-example"><span class="comment"># Learn from production patterns</span>
+patterns = marcus.get_successful_patterns()
+prompt = marcus.generate_system_prompt(
+    role="backend",
+    practices=patterns.best_practices
+)
+<span class="comment"># Apply to your agent for better results</span></pre>
                 </div>
             </div>
         </div>
@@ -78,17 +82,17 @@ predictions = memory.predict_outcomes()</pre>
     <!-- Products - Clean presentation -->
     <section class="products">
         <div class="container">
-            <h2>The Marcus ecosystem</h2>
+            <h2>Complete AI development infrastructure</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <h3>Marcus</h3>
-                    <p>Core orchestration platform with 32 integrated systems for intelligent agent coordination, including cognitive memory, AI decision engine, and adaptive learning.</p>
-                    <a href="/products/marcus.html">Learn more →</a>
+                    <h3>Marcus Platform</h3>
+                    <p>MCP server with 32 integrated systems. Transforms projects into tasks, intelligently distributes work to agents, and learns from every completion. Works with your existing Kanban boards.</p>
+                    <a href="/products/marcus.html">Explore the platform →</a>
                 </div>
                 <div class="product-card">
-                    <h3>Seneca</h3>
-                    <p>Real-time visualization dashboard for monitoring agent conversations, task progress, and system health. Automatically discovers and connects to Marcus instances.</p>
-                    <a href="/products/seneca.html">Learn more →</a>
+                    <h3>Seneca Monitor</h3>
+                    <p>Real-time visualization of agent activity. Watch tasks flow through your system, identify bottlenecks, and understand how your agents make decisions. Essential for optimization.</p>
+                    <a href="/products/seneca.html">See it in action →</a>
                 </div>
             </div>
         </div>

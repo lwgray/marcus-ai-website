@@ -26,10 +26,10 @@
 
     <!-- Product Hero -->
     <section class="hero">
-        <h1>Marcus</h1>
-        <p>Intelligent agent coordination platform with cognitive memory systems and adaptive learning</p>
+        <h1>Marcus Platform</h1>
+        <p>The MCP server that enables any AI agent to build production software autonomously</p>
         <div class="button-group">
-            <a href="https://docs.marcus-ai.dev/marcus/README" class="button button-primary">Read Documentation</a>
+            <a href="https://docs.marcus-ai.dev/quickstart" class="button button-primary">Connect Your Agent</a>
             <a href="https://github.com/lwgray/marcus" class="button button-secondary">View Source</a>
         </div>
     </section>
@@ -37,35 +37,37 @@
     <!-- Features -->
     <section class="user-groups">
         <div class="container">
-            <h2>32 Integrated Systems</h2>
+            <h2>Built for real software development</h2>
             <div class="groups-grid">
                 <div class="group-card">
-                    <h3>Core Intelligence</h3>
-                    <p>Multi-tier cognitive memory, AI decision engine, continuous learning, and intelligent task management.</p>
-                    <pre class="code-example"><span class="comment"># Access memory system</span>
-<span class="keyword">from</span> marcus.memory <span class="keyword">import</span> MemorySystem
-
-memory = MemorySystem()
-insights = memory.get_project_insights()</pre>
+                    <h3>Bring Your Own Agent</h3>
+                    <p>Works with any MCP-compatible AI—Claude, GPT-4, Gemini, or custom models. Marcus provides the rails, you choose the AI.</p>
+                    <pre class="code-example"><span class="comment"># MCP tools your agent will use</span>
+register_agent(skills=["Python", "React"])
+request_next_task()      <span class="comment"># Pull when ready</span>
+report_progress(0.75)    <span class="comment"># Track progress</span>
+report_blocker()         <span class="comment"># Get unstuck</span></pre>
                 </div>
 
                 <div class="group-card">
-                    <h3>Agent Coordination</h3>
-                    <p>Sophisticated agent management, worker support, context sharing, and transparent communication.</p>
-                    <pre class="code-example"><span class="comment"># Coordinate agents</span>
-await register_agent(
-    agent_id="backend-01",
-    skills=["Python", "FastAPI"]
+                    <h3>Pull-Based Architecture</h3>
+                    <p>No idle agents, no complex orchestration. Agents request tasks when ready. Marcus intelligently assigns based on skills and context.</p>
+                    <pre class="code-example"><span class="comment"># How agents work autonomously</span>
+<span class="keyword">while</span> project.has_tasks():
+    task = agent.request_next_task()
+    result = agent.complete_task(task)
+    agent.report_progress(result)</pre>
+                </div>
+
+                <div class="group-card">
+                    <h3>Learn From Production</h3>
+                    <p>Every task completion teaches Marcus. Discover patterns that work, avoid common failures, and continuously improve agent performance.</p>
+                    <pre class="code-example"><span class="comment"># Train agents on best practices</span>
+patterns = marcus.analyze_successes()
+prompt = marcus.generate_prompt(
+    role="backend",
+    learned_patterns=patterns
 )</pre>
-                </div>
-
-                <div class="group-card">
-                    <h3>Project Management</h3>
-                    <p>Kanban integration, project analysis, quality assurance, and comprehensive reporting.</p>
-                    <pre class="code-example"><span class="comment"># Create project</span>
-marcus create my-project
-marcus project status
-marcus project report</pre>
                 </div>
             </div>
         </div>
@@ -74,17 +76,17 @@ marcus project report</pre>
     <!-- Technical Details -->
     <section class="products">
         <div class="container">
-            <h2>Technical Architecture</h2>
+            <h2>Why Marcus works</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <h3>MCP Protocol</h3>
-                    <p>Model Context Protocol server enabling AI agents to interact with development tools and coordinate tasks through a standardized interface.</p>
-                    <a href="https://docs.marcus-ai.dev/marcus/systems/06-mcp-server">Learn about MCP →</a>
+                    <h3>Industry-Standard MCP</h3>
+                    <p>Built on Model Context Protocol—the emerging standard for AI agent communication. Your agents speak MCP? They work with Marcus. Future-proof your AI infrastructure.</p>
+                    <a href="https://docs.marcus-ai.dev/marcus/systems/06-mcp-server">MCP implementation →</a>
                 </div>
                 <div class="product-card">
-                    <h3>Event-Driven Architecture</h3>
-                    <p>Loosely coupled systems communicate through events, enabling scalability, resilience, and real-time monitoring with tools like Seneca.</p>
-                    <a href="https://docs.marcus-ai.dev/marcus/systems/09-event-driven-system">Explore architecture →</a>
+                    <h3>Real Tasks, Real Learning</h3>
+                    <p>Not toy problems or demos. Marcus manages actual software projects. Every completed task improves future performance. Production-grade from day one.</p>
+                    <a href="https://docs.marcus-ai.dev/marcus/systems/17-learning-systems">How Marcus learns →</a>
                 </div>
             </div>
         </div>
