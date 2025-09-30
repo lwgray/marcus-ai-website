@@ -25,20 +25,20 @@ jobs:
           sparse-checkout: |
             docs
 
-      - name: Sync documentation files
+      - name: Sync documentation files to Mintlify structure
         run: |
-          echo "Syncing docs from marcus repo..."
+          echo "Syncing docs from marcus repo to Mintlify structure..."
 
-          # Remove old docs
-          rm -rf pages/docs/getting-started pages/docs/concepts pages/docs/guides pages/docs/systems pages/docs/api pages/docs/roadmap
+          # Remove old docs (Mintlify expects docs in root, not pages/)
+          rm -rf getting-started concepts guides systems api-reference roadmap
 
-          # Copy new docs
-          cp -r marcus-source/docs/getting-started pages/docs/
-          cp -r marcus-source/docs/concepts pages/docs/
-          cp -r marcus-source/docs/guides pages/docs/
-          cp -r marcus-source/docs/systems pages/docs/
-          cp -r marcus-source/docs/api pages/docs/
-          cp -r marcus-source/docs/roadmap pages/docs/
+          # Copy new docs to Mintlify structure
+          cp -r marcus-source/docs/getting-started ./
+          cp -r marcus-source/docs/concepts ./
+          cp -r marcus-source/docs/guides ./
+          cp -r marcus-source/docs/systems ./
+          cp -r marcus-source/docs/api ./api-reference
+          cp -r marcus-source/docs/roadmap ./
 
           # Clean up source
           rm -rf marcus-source
@@ -59,7 +59,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add pages/docs/
+          git add getting-started/ concepts/ guides/ systems/ api-reference/ roadmap/
           git commit -m "docs: sync from marcus repo [skip ci]"
           git push
 

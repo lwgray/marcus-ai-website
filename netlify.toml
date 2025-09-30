@@ -1,6 +1,6 @@
 [build]
-  command = "npm run export"
-  publish = "out"
+  command = "npm install -g mintlify && mintlify build"
+  publish = "_site"
 
 [build.environment]
   NODE_VERSION = "18"
