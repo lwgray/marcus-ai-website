@@ -1,0 +1,68 @@
+name: Sync Documentation from Marcus Repo
+
+on:
+  repository_dispatch:
+    types: [docs-updated]
+  workflow_dispatch:
+  schedule:
+    # Sync daily at 2 AM UTC as backup
+    - cron: '0 2 * * *'
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout marcus repo docs
+        uses: actions/checkout@v4
+        with:
+          repository: lwgray/marcus
+          path: marcus-source
+          sparse-checkout: |
+            docs
+
+      - name: Sync documentation files
+        run: |
+          echo "Syncing docs from marcus repo..."
+
+          # Remove old docs
+          rm -rf pages/docs/getting-started pages/docs/concepts pages/docs/guides pages/docs/systems pages/docs/api pages/docs/roadmap
+
+          # Copy new docs
+          cp -r marcus-source/docs/getting-started pages/docs/
+          cp -r marcus-source/docs/concepts pages/docs/
+          cp -r marcus-source/docs/guides pages/docs/
+          cp -r marcus-source/docs/systems pages/docs/
+          cp -r marcus-source/docs/api pages/docs/
+          cp -r marcus-source/docs/roadmap pages/docs/
+
+          # Clean up source
+          rm -rf marcus-source
+
+          echo "Sync complete!"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add pages/docs/
+          git commit -m "docs: sync from marcus repo [skip ci]"
+          git push
+
+      - name: No changes detected
+        if: steps.check_changes.outputs.has_changes == 'false'
+        run: echo "No documentation changes to sync"

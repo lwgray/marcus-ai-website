@@ -1,26 +1,35 @@
 [build]
-  publish = "."
+  command = "npm run export"
+  publish = "out"
 
-[[redirects]]
-  from = "/docs"
-  to = "https://docs.marcus-ai.dev"
-  status = 301
-  force = true
+[build.environment]
+  NODE_VERSION = "18"
 
+# Redirects for client-side routing
 [[redirects]]
   from = "/docs/*"
-  to = "https://docs.marcus-ai.dev/:splat"
-  status = 301
-  force = true
+  to = "/docs/:splat"
+  status = 200
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    X-XSS-Protection = "1; mode=block"
+
+# Cache static assets
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.css"
@@ -28,11 +37,21 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/*.js"
+  for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/assets/*"
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpeg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
